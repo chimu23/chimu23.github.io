@@ -72,7 +72,7 @@
     "h5" : {
         "title" : "TODO",
         "router" : {
-            "base" : "",
+            "base" : "./",
             "mode" : "history"
         }
     }

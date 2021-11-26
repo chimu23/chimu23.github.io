@@ -42,6 +42,9 @@ module.exports = {
         },
         orange,
       },
+      fontSize:{
+        xxs:'.6rem'
+      },
       zIndex: {
         1: '1',
       },
@@ -76,7 +79,7 @@ module.exports = {
             padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`,
           },
           '&[size="sm"]': {
-            padding: `${theme('spacing.[2.5]')} ${theme('spacing.[3.5]')}`,
+            padding: `${theme('spacing.[2]')} ${theme('spacing.[3.5]')}`,
             fontSize: theme('fontSize.xs'),
           },
           '&[size="mini"]': {
@@ -105,19 +108,19 @@ module.exports = {
           },
         },
         '.btn-info': {
-          backgroundColor: theme('colors.gray.600'),
+          backgroundColor: theme('colors.indigo.300'),
           color: theme('colors.white'),
-          borderColor: theme('colors.gray.500'),
+          borderColor: theme('colors.indigo.500'),
           '&:not([disable])&:hover': {
-            backgroundColor: theme('colors.gray.550'),
+            backgroundColor: theme('colors.indigo.550'),
           },
           '&[plain]': {
-            color: theme('colors.gray.600'),
-            backgroundColor: theme('colors.gray.200'),
+            color: theme('colors.indigo.600'),
+            backgroundColor: theme('colors.indigo.200'),
           },
           '&[plain]&:hover': {
             color: theme('colors.white'),
-            backgroundColor: theme('colors.gray.500'),
+            backgroundColor: theme('colors.indigo.500'),
             // opacity: theme('opacity.50'),
           },
         },

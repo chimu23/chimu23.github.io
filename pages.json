@@ -3,12 +3,12 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "todo"
+				"navigationBarTitleText": "Home | Todo"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationStyle":"custom",
-		"navigationBarTitleText": "all"
+		"navigationBarTitleText": "Home "
 	}
 }

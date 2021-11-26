@@ -15,8 +15,9 @@
 		"title":{
 			"description": "标题"
 		},
-		"value":{
-			"description": "内容"
+		"note":{
+			"description": "内容",
+			"defaultValue": ""
 		},
 		"checked":{
 			"defaultValue": false

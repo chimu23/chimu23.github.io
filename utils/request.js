@@ -21,14 +21,25 @@ export default async function http(database, {
 	let result = null
 	switch (method.toLowerCase()) {
 		case 'get':
-			result = await DB.collection(database).get()
+			result = await DB.collection(database).get({
+				getCount: true
+			})
 			break
 		case 'add':
 			result = await DB.collection(database).add(payload)
 			break
+		case 'put':
+			const {
+				_id, ...args
+			} = payload
+			result = await DB.collection(database).where({
+				_id
+			}).update(args)
+			break
 		case 'delete':
 			result = await DB.collection(database).where(payload).remove()
 			break
+
 	}
 	const {
 		result: {

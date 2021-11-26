@@ -8,7 +8,7 @@ const props = defineProps(['item', 'index'])
 const emit = defineEmits('editItem')
 
 function iconClick() {
-  const { value: checked } = props.item.checked
+  const { checked } = props.item
   if (checked) return
   emit('editItem', props.item)
 }
@@ -21,8 +21,7 @@ function iconClick() {
       justify-between
       items-center
       w-full
-      text-xl
-      md:text-base
+      text-base
       group
       bg-white
       rounded
@@ -38,7 +37,7 @@ function iconClick() {
       }"
       >{{ item.title }}</e-checkbox
     >
-	<svgIcon icon="icon-Search" 
+	<svgIcon icon="icon-xiangsu_youxiji" 
 	class="w-5 text-indigo-200 group-hover:text-theme cursor-pointer"
 	:class="{ ' cursor-not-allowed': item.checked }"
 	@click="iconClick"

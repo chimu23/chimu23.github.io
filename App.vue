@@ -1,13 +1,13 @@
-// <script>
-// 	export default {
-// 		onLaunch: function() {
-// 			console.log('App Launch')
-// 		},
-// 		onShow: function() {
-// 			console.log('App Show')
-// 		},
-// 		onHide: function() {
-// 			console.log('App Hide')
-// 		}
-// 	}
-// </script>
+<style>
+	@media screen and (min-width:100px) {
+		html{
+			font-size: 16px !important;
+		}
+	}
+	@media screen and (min-width:600px) {
+		html{
+			font-size: 26px !important;
+		}
+	}
+	
+</style>

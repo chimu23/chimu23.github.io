@@ -42,23 +42,24 @@ onMounted(() => {
         z-30
       "
     >
-      <div class="pt-2 pb-3 mx-auto bg-white rounded-md" :style="{ width }">
+      <div class="pt-5 pb-3 mx-auto bg-white rounded-md" :style="{ width }">
         <p
-          class="text-center text-blue-500 font-medium text-base pt-1 pb-2.5"
+          class="text-center text-blue-500 font-medium text-base -mt-2  pb-2.5"
           v-if="title"
         >
           {{ title }}
         </p>
         <slot></slot>
-        <div class="flex justify-end pt-3 pr-3">
+        <div class="flex justify-end pt-6 pr-3">
           <div
             class="btn btn-info mr-3"
             plain
             @click="$emit('update:isShow', false)"
+			size="mini"
           >
             取消
           </div>
-          <div class="btn btn-info" @click="$emit('confirm')">确定</div>
+          <div class="btn btn-info" size="sm" @click="$emit('confirm')">确定</div>
         </div>
       </div>
     </div>

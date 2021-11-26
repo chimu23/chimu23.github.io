@@ -16,15 +16,21 @@ export function addTodo({
 }
 
 export function updateTodo(_id, title, note) {
-	return http({
-		method: 'PUT',
-		url: '/proxy/todo',
-		data: {
-			_id,
-			title,
-			note,
-		},
+	return http('todolist', {
+		method: 'put',
+		_id,
+		title,
+		note
 	})
+	// return http({
+	// 	method: 'PUT',
+	// 	url: '/proxy/todo',
+	// 	data: {
+	// 		_id,
+	// 		title,
+	// 		note,
+	// 	},
+	// })
 }
 
 export function deleteTodo(_id) {

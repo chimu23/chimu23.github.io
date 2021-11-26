@@ -4,7 +4,8 @@ import Item from './Item.vue';
 import { getList, deleteTodo, addTodo } from '../../../api/todo';
 import TodoDialog from './TodoDialog.vue';
 import EInput from '../../../components/E/Form/EInput.vue';
-const props = defineProps(['item', 'tabInfo']);
+const props = defineProps(['item', 'tabInfo','isLoading','todoTotal']);
+const emits = defineEmits(['update:isLoading','update:todoTotal'])
 const isShow = ref(false);
 const inputValue = ref('');
 const todo = reactive({
@@ -22,18 +23,25 @@ let computedList = computed(() => {
 			return todo.list.filter(item => item.checked === false);
 	}
 });
-getList().then(({data:items,affectedDocs:_total})=>{
+getList().then(({data:items,count})=>{
 	todo.list = items;
+	emits('update:isLoading',false)
+	emits('update:todoTotal',count)
 })
 
 function addNewTodo() {
 	const { value: title } = inputValue;
+	if(!title.trim()) return uni.showToast({
+		title:'不能为空',
+		icon:'none'
+	})
 	addTodo({
 		title
 	}).then(({ id }) => {
 		todo.list.push({
 			_id: id,
-			title: inputValue.value
+			title: inputValue.value,
+			checked:false
 		});
 		inputValue.value = ''
 	});
@@ -46,7 +54,6 @@ function deleteItem(index) {
 	});
 }
 function updateItem(detailInfo) {
-	console.log(detailInfo);
 	const { _id } = todo.item;
 	const itemIndex = todo.list.findIndex(item => item._id === _id);
 	todo.list[itemIndex] = detailInfo;

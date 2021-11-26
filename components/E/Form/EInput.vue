@@ -22,6 +22,6 @@ const inputVal = computed({
   <input
     v-model="inputVal"
     type="text"
-    class="outline-none ring-1 focus:ring-2 px-2 text-sm"
+    class="outline-none ring-1 focus:ring-2 px-2 text-sm h-7 rounded-sm"
   />
 </template>

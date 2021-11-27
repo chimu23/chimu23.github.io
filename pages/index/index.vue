@@ -6,6 +6,7 @@ import EBandage from '../../components/E/Bandage/index.vue';
 
 const todoDialogRef = ref(null);
 const isShow = ref(false);
+const isRabbitBounce = ref(false);
 const isLoading = ref(true)
 const todoTotal = ref(0)
 const tabs = ref(['全部', '已完成', '未完成']);
@@ -20,14 +21,21 @@ function updateItem(item) {
 function tabChange(index) {
 	currentTab.value = tabs.value[index];
 }
+function rabbitJump(){
+	if(isRabbitBounce.value) return
+	isRabbitBounce.value = true
+	setTimeout(()=>{
+		isRabbitBounce.value = false
+	},2500)
+}
 </script>
 
 <template>
-	<div class="w-11/12 p-3 mx-auto shadow-md rounded-md bg-indigo-50">
+	<div class="w-11/12 p-3 mt-2 mx-auto shadow-md rounded-md bg-indigo-50">
 		<div class="flex justify-between border-b-2 border-white pb-1 mb-2">
 			<span class="text-lg font-bold">List</span>
-			<EBandage :num="todoTotal">
-				<svgIcon v-if="isLoading" icon="icon-loading" class="w-5 h-5 cursor-pointer animate-spin"></svgIcon>
+			<EBandage :num="todoTotal" @click="rabbitJump()" :class="{'animate-bounce':isRabbitBounce}">
+				<svgIcon v-if="isLoading" icon="icon-dengdai" class="w-5 h-5 cursor-pointer animate-spin"></svgIcon>
 				<svgIcon v-else icon="icon-xiangsu_tuzi" class="w-5 h-5"></svgIcon>
 			</EBandage>
 		</div>

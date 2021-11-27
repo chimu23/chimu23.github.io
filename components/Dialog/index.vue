@@ -42,13 +42,13 @@ onMounted(() => {
         z-30
       "
     >
-      <div class="pt-5 pb-3 mx-auto bg-white rounded-md" :style="{ width }">
-        <p
-          class="text-center text-blue-500 font-medium text-base -mt-2  pb-2.5"
+      <div class="pt-6 pb-3 mx-auto bg-white rounded-md" :style="{ width }">
+        <div
+          class="text-center text-indigo-500 font-bold text-base -mt-1 pb-3"
           v-if="title"
         >
           {{ title }}
-        </p>
+        </div>
         <slot></slot>
         <div class="flex justify-end pt-6 pr-3">
           <div

@@ -1,15 +1,3 @@
-// // 处理get获取
-// const handlerGet = (sql, payload) => {
-// 	for (let key in payload) {
-// 		const value = payload[key]
-// 		if (typeof value === 'string') {
-// 			sql += `.${key}('${value}')`
-// 		} else if (typeof value === 'object') {
-// 			sql += `.${key}(${JSON.stringify(value)})`
-// 		}
-// 	}
-// 	return sql += '.get()'
-// }
 let DB = uniCloud.database()
 
 export default async function http(database, {

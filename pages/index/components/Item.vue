@@ -1,22 +1,15 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import EInput from '../../../components/E/Form/EInput.vue'
-import ECheckbox from '../../..//components/E/Form/ECheckBox.vue'
-// import { CodeIcon } from '@heroicons/vue/solid'
+import { onMounted, ref } from 'vue';
+import EInput from '../../../components/E/Form/EInput.vue';
+import ECheckbox from '../../..//components/E/Form/ECheckBox.vue';
 
-const props = defineProps(['item', 'index'])
-const emit = defineEmits('editItem')
+const props = defineProps(['item', 'index']);
+const emit = defineEmits(['editItem', 'deleteItem']);
 
-function iconClick() {
-  const { checked } = props.item
-  if (checked) return
-  emit('editItem', props.item)
-}
 </script>
-
 <template>
-  <div
-    class="
+	<div
+		class="
       flex
       justify-between
       items-center
@@ -26,21 +19,19 @@ function iconClick() {
       bg-white
       rounded
       py-1.5
-      px-2
+      pl-2
+	  pr-3
     "
-  >
-    <e-checkbox
-      :modelValue="item.checked"
-      @change="$emit('delete-item', index)"
-      :class="{
-        ' line-through italic text-gray-200 cursor-not-allowed': item.checked,
-      }"
-      >{{ item.title }}</e-checkbox
-    >
-	<svgIcon icon="icon-xiangsu_youxiji" 
-	class="w-5 text-indigo-200 group-hover:text-theme cursor-pointer"
-	:class="{ ' cursor-not-allowed': item.checked }"
-	@click="iconClick"
-	></svgIcon>
-  </div>
+	>
+		<e-checkbox :modelValue="item.checked" @change="$emit('delete-item', index)">
+			<span
+				:class="{
+					' line-through italic text-gray-200 cursor-not-allowed': item.checked
+				}"
+			>
+				{{ item.title }}
+			</span>
+		</e-checkbox>
+		<svgIcon v-if="!item.checked" icon="icon-bianji" class="w-4 h-4 group-hover:text-theme cursor-pointer" @click="$emit('editItem', props.item)"></svgIcon>
+	</div>
 </template>

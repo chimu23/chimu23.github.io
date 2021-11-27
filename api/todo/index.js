@@ -1,40 +1,30 @@
-import http from '/utils/request'
-const db = uniCloud.database()
+import cloundHttp from '/utils/request'
 
 export function getList() {
-	return http('todolist')
+	return cloundHttp('todolist')
 }
 
 export function addTodo({
 	title,
 	note
 }) {
-	return http('todolist', {
+	return cloundHttp('todolist', {
 		method: 'add',
 		title
 	})
 }
 
 export function updateTodo(_id, title, note) {
-	return http('todolist', {
+	return cloundHttp('todolist', {
 		method: 'put',
 		_id,
 		title,
 		note
 	})
-	// return http({
-	// 	method: 'PUT',
-	// 	url: '/proxy/todo',
-	// 	data: {
-	// 		_id,
-	// 		title,
-	// 		note,
-	// 	},
-	// })
 }
 
 export function deleteTodo(_id) {
-	return http('todolist', {
+	return cloundHttp('todolist', {
 		method: 'delete',
 		_id
 	})

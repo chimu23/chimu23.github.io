@@ -20,8 +20,8 @@
 
 <template>
 	<div data-desc="搜索" class=" flex justify-between items-center px-5">
-		<EInput v-model="searchInput"></EInput>
-		<svgIcon icon="icon-faxian" class=" w-10 h-10 ml-3" @click="goSearch"></svgIcon>
+		<EInput v-model="searchInput" @confirm="goSearch()"></EInput>
+		<svgIcon icon="icon-faxian" class=" w-10 h-10 ml-3"></svgIcon>
 	</div>
 	<ETab :list="tabList"></ETab>
 </template>

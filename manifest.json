@@ -73,7 +73,7 @@
         "title" : "Home",
         "router" : {
             "base" : "./",
-            "mode" : "history"
+            "mode" : "hash"
         }
     }
 }

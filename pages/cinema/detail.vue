@@ -1,6 +1,6 @@
 <template>
 	<XGPlayer v-if="playUrl" :url="playUrl"></XGPlayer>
-	<div class="btn btn-info" v-for="(item,index) in playList" @click="changePlay(item)">{{item.label}}</div>
+	<div class="btn btn-info" v-for="(item,index) in playList" @click="changePlay(item,index)">{{item.label}}</div>
 </template>
 
 <script>
@@ -18,12 +18,13 @@ export default {
 		return {
 			playList: [],
 			currentIndex: 0,
-			playUrl:''
+			playUrl:'',
 		};
 	},
 	methods:{
-		changePlay(item){
-			console.log(item);
+		changePlay(item,index){
+			this.playUrl = item
+			this.currentIndex = Number(index)
 		}
 	}
 };

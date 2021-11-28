@@ -3,16 +3,16 @@
 </template>
 
 <script setup>
-import { defineProps, onMounted } from 'vue';
+import { defineProps, onMounted, watch, ref } from 'vue';
 const props = defineProps({
 	url: {
 		type: String,
 		required: true
 	}
 });
+const player = ref(null)
 onMounted(() => {
 	const { url } = props
-	console.log('url',url);
 	const videoType =  url.slice(-6).match(/\.(.+)/)?.[1]
 	
 	if(!videoType){ 
@@ -25,15 +25,22 @@ onMounted(() => {
 	const playOptoins = {
 		id: 'xg-player',
 		url,
-		fluid: true
+		fluid: true,
+		closeVideoTouch:true,
+		enableVideoDbltouch:true,
+		autoplay: true
 	}
 	if(videoType === 'mp4'){
-		let player = new Player(playOptoins);
+		player.value = new Player(playOptoins);
 	}else if(videoType === 'm3u8'){
-		let player = new HlsJsPlayer(playOptoins);
+	    player.value = new HlsJsPlayer(playOptoins);
 	}
-
 });
+watch(()=>props.url,(newVal)=>{
+	player.value.src = newVal.value
+	uni.showToast({
+		icon:'none',
+		title:'切换成过'
+	})
+})
 </script>
-
-<style lang="scss"></style>

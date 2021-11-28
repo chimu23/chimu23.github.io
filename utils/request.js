@@ -39,3 +39,16 @@ export default async function http(database, {
 		return Promise.resolve(resp)
 	}
 }
+
+export async function cloundRequest(url, params) {
+	let name = url.split('/')[0]
+	let action = url.split('/')[1]
+
+	return uniCloud.callFunction({
+		name,
+		data:{
+			action,
+			params
+		}
+	})
+}

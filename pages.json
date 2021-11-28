@@ -23,6 +23,13 @@
 			"style": {
 				"navigationBarTitleText": "Home | Cinema"
 			}
+		},
+		,
+		{
+			"path": "pages/cinema/detail",
+			"style": {
+				"navigationBarTitleText": "Home | Cinema"
+			}
 		}
 	],
 	"globalStyle": {

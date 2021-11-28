@@ -1,11 +1,32 @@
 <template>
-	<!-- <XGPlayer url="https://vod6.wenshibaowenbei.com/20211121/JgWBUlJq/index.m3u8"></XGPlayer> -->
-	<XGPlayer url="https://img.cdn.aliyun.dcloud.net.cn/guide/uniapp/%E7%AC%AC1%E8%AE%B2%EF%BC%88uni-app%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D%EF%BC%89-%20DCloud%E5%AE%98%E6%96%B9%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B@20200317.mp4"></XGPlayer>
+	<XGPlayer v-if="playUrl" :url="playUrl"></XGPlayer>
+	<div class="btn btn-info" v-for="(item,index) in playList" @click="changePlay(item)">{{item.label}}</div>
 </template>
 
-<script setup>
-	import XGPlayer from '../../components/XGPlayer/XGPlayer.vue'
+<script>
+import XGPlayer from '../../components/XGPlayer/XGPlayer.vue';
+export default {
+	comments: {
+		XGPlayer
+	},
+	onLoad({ playList, index }) {
+		this.playList = JSON.parse(decodeURIComponent(playList));
+		this.currentIndex = Number(index)
+		this.playUrl = (this.playList[this.currentIndex])['value']
+	},
+	data() {
+		return {
+			playList: [],
+			currentIndex: 0,
+			playUrl:''
+		};
+	},
+	methods:{
+		changePlay(item){
+			console.log(item);
+		}
+	}
+};
 </script>
 
-<style>
-</style>
+<style></style>

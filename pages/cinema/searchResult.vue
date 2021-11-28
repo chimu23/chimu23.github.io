@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<div v-for="(item,index) in list" @click="goDetail(item)">{{item.vod_name}}</div>
-		<Dialog >
-			<div class="btn btn-info">click</div>
+		<div v-for="(item,index) in list" @click="showPlayList(item)">{{item.vod_name}}</div>
+		<Dialog v-model:isShow="isShowItems" width="80%">
+			<div class="btn btn-info" v-for="(item,index) in playList" @click="toPlay(item,index)">{{item.label}}</div>
 		</Dialog>
 	</div>
 </template>
@@ -11,6 +11,7 @@
 import { searchByWD } from '../../api/cinema/index.js';
 import Dialog from '../../components/Dialog/index.vue'
 export default {
+	components:{Dialog},
 	onLoad({ wd }) {
 		searchByWD(wd).then(({result})=>{
 			this.list = result
@@ -19,14 +20,14 @@ export default {
 	data(){
 		return {
 			list:[],
+			playList:[],
 			isShowItems:false
 		}
 	},
 	methods:{
-		goDetail(cinema){
+		showPlayList(cinema){
 			let item = cinema.vod_play_url.split('#')
-			let list = []
-			item = item.map(cinema=>{
+			this.playList = item.map(cinema=>{
 				const label = cinema.split('$')[0]
 				const value = cinema.split('$')[1]
 				return {
@@ -35,7 +36,14 @@ export default {
 				}
 			})
 			this.isShowItems = true
-			console.log(item);
+		},
+		toPlay(item,index){
+			let playList = encodeURIComponent(JSON.stringify(this.playList))
+			// console.log(params);
+			// console.log(decodeURIComponent(params));
+			uni.navigateTo({
+				url:`/pages/cinema/detail?playList=${playList}&index=${index}`,
+			})
 		}
 	}
 };

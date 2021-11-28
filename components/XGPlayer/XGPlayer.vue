@@ -12,8 +12,16 @@ const props = defineProps({
 });
 onMounted(() => {
 	const { url } = props
-	const videoType =  url.slice(-6).match(/\.(.+)/)[1]
-	if(!videoType){ throw new Error('格式不对')}
+	console.log('url',url);
+	const videoType =  url.slice(-6).match(/\.(.+)/)?.[1]
+	
+	if(!videoType){ 
+		Window.open(videoType)
+		return uni.showToast({
+			title:'该视频可能不是正确格式',
+			icon:'error'
+		})
+	}
 	const playOptoins = {
 		id: 'xg-player',
 		url,

@@ -24,7 +24,6 @@
 				"navigationBarTitleText": "Home | Cinema"
 			}
 		},
-		,
 		{
 			"path": "pages/cinema/detail",
 			"style": {

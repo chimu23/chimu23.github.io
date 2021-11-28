@@ -1,9 +1,33 @@
 {
 	"pages": [
 		{
+			"path": "pages/home/index",
+			"style": {
+				"navigationBarTitleText": "Home"
+			}
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "Home | Todo"
+			}
+		},
+		{
+			"path": "pages/cinema/index",
+			"style": {
+				"navigationBarTitleText": "Home | Cinema"
+			}
+		},
+		{
+			"path": "pages/cinema/searchResult",
+			"style": {
+				"navigationBarTitleText": "Home | Cinema"
+			}
+		},
+		{
+			"path": "pages/cinema/detail",
+			"style": {
+				"navigationBarTitleText": "Home | Cinema"
 			}
 		}
 	],

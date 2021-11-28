@@ -1,3 +1,19 @@
+uni-navigator {
+  height: auto;
+  width: auto;
+  display: block;
+  cursor: pointer;
+}
+
+uni-navigator[hidden] {
+  display: none;
+}
+
+.navigator-hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+}
+
 uni-toast {
   position: fixed;
   top: 0;

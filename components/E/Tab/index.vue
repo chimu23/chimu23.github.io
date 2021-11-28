@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 defineProps({
-  list: [],
+  list: {
+	  type: Array,
+	  default:[]
+  },
 })
 const currentIndex = ref(0)
 </script>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import todoList from './components/List.vue';
 import ETab from '../../components/E/Tab/index.vue';
 import EBandage from '../../components/E/Bandage/index.vue';

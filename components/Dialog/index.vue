@@ -14,6 +14,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  hideBar:{
+	  type: Boolean,
+	  default: false
+  }
 })
 const emit = defineEmits('update:isShow')
 const dialogRef = ref(null)
@@ -50,7 +54,7 @@ onMounted(() => {
           {{ title }}
         </div>
         <slot></slot>
-        <div class="flex justify-end pt-6 pr-3">
+        <div class="flex justify-end pt-6 pr-3" v-if="!hideBar">
           <div
             class="btn btn-info mr-3"
             plain

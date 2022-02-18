@@ -1,6 +1,6 @@
 let DB = uniCloud.database()
 
-export default async function http(database, {
+export async function db(database, {
 	method = 'get',
 	...payload
 } = {}) {
@@ -9,12 +9,17 @@ export default async function http(database, {
 	let result = null
 	switch (method.toLowerCase()) {
 		case 'get':
-			result = await DB.collection(database).get({
+			result = await DB.collection(database).where({
+				uid: getApp().globalData.uid
+			}).get({
 				getCount: true
 			})
 			break
 		case 'add':
-			result = await DB.collection(database).add(payload)
+			result = await DB.collection(database).add({
+				uid:getApp().globalData.uid,
+				...payload
+			})
 			break
 		case 'put':
 			const {
@@ -40,13 +45,13 @@ export default async function http(database, {
 	}
 }
 
-export async function cloundRequest(url, params) {
+export async function clound(url, params) {
 	let name = url.split('/')[0]
 	let action = url.split('/')[1]
 
 	return uniCloud.callFunction({
 		name,
-		data:{
+		data: {
 			action,
 			params
 		}

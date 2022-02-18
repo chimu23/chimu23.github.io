@@ -1,21 +1,23 @@
-import cloundHttp from '/utils/request'
+import {
+	db
+} from '/utils/request'
 
 export function getList() {
-	return cloundHttp('todolist')
+	return db('todolist')
 }
 
 export function addTodo({
 	title,
 	note
 }) {
-	return cloundHttp('todolist', {
+	return db('todolist', {
 		method: 'add',
 		title
 	})
 }
 
 export function updateTodo(_id, title, note) {
-	return cloundHttp('todolist', {
+	return db('todolist', {
 		method: 'put',
 		_id,
 		title,
@@ -24,7 +26,7 @@ export function updateTodo(_id, title, note) {
 }
 
 export function deleteTodo(_id) {
-	return cloundHttp('todolist', {
+	return db('todolist', {
 		method: 'delete',
 		_id
 	})

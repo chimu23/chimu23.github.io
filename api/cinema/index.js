@@ -1,8 +1,8 @@
 import {
-	cloundRequest
+	clound
 } from "../../utils/request.js"
 export const searchByWD = function(wd) {
-	return cloundRequest('cinema/search', {
+	return clound('cinema/search', {
 		wd
 	})
 	// return cloundRequest('https://api.apibdzy.com/api.php/provide/vod', {

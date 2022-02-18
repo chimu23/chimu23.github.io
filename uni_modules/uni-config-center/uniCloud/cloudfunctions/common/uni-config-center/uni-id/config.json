@@ -1,0 +1,24 @@
+{
+  "passwordSecret": "passwordSecret-demo",
+  "tokenSecret": "tokenSecret-demo", 
+  "tokenExpiresIn": 7200, 
+  "tokenExpiresThreshold": 600, 
+  "bindTokenToDevice": false, 
+  "passwordErrorLimit": 6, 
+  "passwordErrorRetryTime": 3600,
+  "autoSetInviteCode": false, 
+  "forceInviteCode": false, 
+  "removePermissionAndRoleFromToken": false, 
+  "service": {
+    "sms": {
+      "name": "your app name",
+      "codeExpiresIn": 180, 
+      "smsKey": "your sms key", 
+      "smsSecret": "your sms secret" 
+    },
+    "univerify": {
+      "appid": "your appid", 
+      "apiKey": "your apiKey" 
+    }
+  }
+}

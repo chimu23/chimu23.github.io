@@ -1,0 +1,56 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID，系统自动生成"
+		},
+		"uid": {
+			"bsonType": "string",
+			"description": "对应账户",
+			"required": true
+		},
+		"belong": {
+			"bsonType": "string",
+			"title": "账号所属",
+			"trim": "both",
+			"description": "账号所属（网址、APP）"
+		},
+		"account": {
+			"bsonType": "string",
+			"title": "账号名称",
+			"trim": "both",
+			"description": "账号名称"
+		},
+		"password": {
+			"bsonType": "string",
+			"title": "账号mima",
+			"trim": "both",
+			"description": "账号密码"
+		},
+		"desc": {
+			"bsonType": "string",
+			"title": "账号描述",
+			"trim": "both",
+			"description": "账号描述"
+		},
+		"label": {
+			"bsonType": "string",
+			"title": "账号标签",
+			"description": "账号标签",
+			"defaultValue": "标签"
+		},
+		"isCollection": {
+			"bsonType": "bool",
+			"title": "收藏",
+			"description": "是否收藏",
+			"defaultValue": true
+		}
+	}
+}

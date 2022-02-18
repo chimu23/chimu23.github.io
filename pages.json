@@ -1,6 +1,15 @@
 {
 	"pages": [
 		{
+		    "path" : "pages/login/index",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		{
 			"path": "pages/home/index",
 			"style": {
 				"navigationBarTitleText": "Home"
@@ -30,7 +39,23 @@
 				"navigationBarTitleText": "Home | Cinema"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/account/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "Home | Account"
+            }
+            
+        },
+		{
+		    "path" : "pages/account/edit",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "Home | Account"
+		    }
+		}
+        
+    ],
 	"globalStyle": {
 		"navigationStyle":"custom",
 		"navigationBarTitleText": "Home "
